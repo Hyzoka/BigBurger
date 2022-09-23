@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikepenz.fastadapter.IItem
 import com.mikepenz.fastadapter.commons.adapters.FastItemAdapter
 import com.test.bigburger.R
+import kotlinx.android.synthetic.main.fragment_menu.*
 
 class MenuFragment : Fragment() {
 
@@ -30,11 +32,27 @@ class MenuFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
+        viewModel()
+        setupListOfMenu()
+    }
 
+    private fun viewModel(){
         viewModel.menuList.observe(requireActivity(), Observer { list ->
             menuAdapter.clear()
             menuAdapter.add(list.map { MenuItem(it) })
         })
+    }
+
+    private fun setupListOfMenu(){
+        listMenu.layoutManager = LinearLayoutManager(requireContext())
+        menuAdapter.withSelectable(true)
+        menuAdapter.withSelectWithItemUpdate(true)
+        listMenu.adapter = menuAdapter
+
+        menuAdapter.withOnPreClickListener { _, _, _, _ ->
+
+            false
+        }
     }
 
 }
