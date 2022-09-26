@@ -1,4 +1,4 @@
-package com.test.bigburger.manager
+package com.test.bigburger.service
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

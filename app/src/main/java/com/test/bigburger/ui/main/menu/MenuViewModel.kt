@@ -9,15 +9,19 @@ class MenuViewModel : ViewModel() {
 
     val menuList: MutableLiveData<List<Menu>> = MutableLiveData()
     private val burgerManager = BurgerManager()
+    var basketList = mutableListOf<Menu>()
+
 
     init {
-        getMenuList()
+        burgerManager.getBurgerListMenu()
         burgerManager.burgerObs.subscribe {
             menuList.postValue(it)
         }
     }
 
-    fun getMenuList(){
-        burgerManager.getBurgerListMenu()
+    fun addMenuList(menu: Menu){
+        basketList.add(menu)
     }
+
+    fun getMenu() = basketList.toList()
 }

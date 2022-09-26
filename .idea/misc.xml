@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/circle_withe.xml" value="0.2455" />
+        <entry key="app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.2455" />
+        <entry key="app/src/main/res/drawable/round_corner_black_36.xml" value="0.2455" />
         <entry key="app/src/main/res/font/italianno.xml" value="0.4546296296296296" />
         <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.3757455268389662" />
         <entry key="app/src/main/res/layout/fragment_panier.xml" value="0.5291666666666667" />

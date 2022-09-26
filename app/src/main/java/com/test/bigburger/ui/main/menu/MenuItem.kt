@@ -9,6 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.test.bigburger.R
 import com.test.bigburger.model.Menu
 import com.test.bigburger.utils.KauIItem
+import com.test.bigburger.utils.Utils
 import com.test.bigburger.utils.load
 
 open class MenuItem(var data: Menu) : KauIItem<MenuItem, MenuItem.ViewHolder>(
@@ -21,8 +22,7 @@ open class MenuItem(var data: Menu) : KauIItem<MenuItem, MenuItem.ViewHolder>(
         holder.title.text = data.title
         holder.descText.text = data.description
         holder.menuImage.load(data.thumbnail,RequestOptions().centerCrop())
-        var price = StringBuilder(data.price.toString()).insert(data.price.toString().length-2,",")
-        holder.price.text = "$price€"
+        holder.price.text = "${Utils.formatPrice(data.price)}€"
 
     }
 
